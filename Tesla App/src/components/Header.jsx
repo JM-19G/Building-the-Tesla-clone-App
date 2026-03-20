@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <>
-      <div className="fixed top-0 w-full flex justify-between items-center p-4 z-50 backdrop-blur-md">
+      <div className="fixed top-0 w-full flex justify-between items-center px-6 py-4 z-50 text-black">
         <h1 className="font-bold text-xl">TESLA</h1>
 
         <div className="hidden md:flex gap-6">

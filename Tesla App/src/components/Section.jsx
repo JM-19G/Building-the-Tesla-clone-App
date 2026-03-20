@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 
 function Section({ id, name, description, images, price, interior, exterior, openModal }) {
+    const navigate = useNavigate()
   return (
     <motion.div
       id={id}
-      className="h-screen bg-cover bg-center relative flex flex-col justify-between items-center text-center snap-start"
+      className="h-screen w-full bg-cover bg-center relative flex flex-col justify-between items-center text-center snap-start"
       style={{
         backgroundImage: `url(${images[0]}?auto=format&fit=crop&w=1920&q=80)`
       }}
@@ -13,10 +15,10 @@ function Section({ id, name, description, images, price, interior, exterior, ope
       transition={{ duration: 1 }}
     >
       {/*  FULL SCREEN OVERLAY */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       {/*  CONTENT ) */}
-      <div className="relative z-10 pt-24 text-center text-white">
+      <div className="relative z-10 pt-32 text-center text-white">
        <h1 className="text-5xl font-medium tracking-wide">{name}</h1>
        <p className="text-sm mt-2 opacity-80">{description}</p>
       </div>
@@ -34,10 +36,10 @@ function Section({ id, name, description, images, price, interior, exterior, ope
           </button>
 
         <button
-          onClick={openModal}
-          className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded-full transition duration-300"
-        >
-          View Details
+          onClick={() => navigate(`/${id}`)}
+          className="bg-white text-black px-6 py-2 rounded-full"
+         >
+         View Details
         </button>
 
         {/* <button
