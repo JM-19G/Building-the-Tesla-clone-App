@@ -52,7 +52,7 @@ function Header() {
   ></div>
 
   {/* DARK OVERLAY */}
-  <div className="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
+  <div className="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
 
   {/* CONTENT */}
   <div className="relative z-10 text-white h-full flex flex-col">
