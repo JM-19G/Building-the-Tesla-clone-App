@@ -47,7 +47,7 @@ function Header() {
     className="absolute inset-0 bg-cover bg-center"
     style={{
       backgroundImage:
-        "url(https://images.unsplash.com/photo-1503376780353-7e6692767b70)"
+        "url(https://images.unsplash.com/photo-1502877338535-766e1452684a)"
     }}
   ></div>
 

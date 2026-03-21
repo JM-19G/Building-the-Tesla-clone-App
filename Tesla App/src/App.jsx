@@ -1,23 +1,33 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import Header from "./components/Header"
 import Section from "./components/Section"
 import CarModal from "./components/CarModal"
 import CarPage from "./components/CarPage"
+import Loader from "./components/Loader"
 import cars from "./data/cars"
 
 function App() {
   const [selectedCar, setSelectedCar] = useState(null)
 
+  // ✅ LOADER STATE
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000)
+  }, [])
+
+  // ✅ SHOW LOADER FIRST
+  if (loading) return <Loader />
+
   return (
     <Routes>
 
-      {/* HOMEPAGE */}
       <Route
         path="/"
         element={
           <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-
+            
             <Header />
 
             {cars.map((car) => (
@@ -32,14 +42,11 @@ function App() {
               car={selectedCar}
               closeModal={() => setSelectedCar(null)}
             />
-
           </div>
         }
       />
 
-      {/* CAR PAGE */}
       <Route path="/:id" element={<CarPage />} />
-
     </Routes>
   )
 }
